@@ -4,25 +4,28 @@ robot:
     limits:
       upper: [ 2,  2]
       lower: [-2, -2]
-    geometry:
-      - type: "convex"
-        points:              # Triángulo
-          - [1.6, 0.4]
-          - [1.8, 1.4]
-          - [1.2, 1.2]
-        color: [0.5, 0.5, 0.5, 1]
 
-  - name: "obstacle1"
     geometry:
       - type: "convex"
         points:              # Pentágono irregular rotado
           - [0, 0]
-          - [2, 1]
-          - [1, 3]
-          - [-1, 3]
-          - [-2, 1]
-        offset: [0.25 , 0.4, 0.37]
+          - [1, 0.5]
+          - [0.5, 1.5]
+          - [-0.5, 1.5]
+          - [-1, 0.5]
+        offset: [1.5 , 0.8, 0.9]
         color: [0, 0.1, 0.5, 1]
+  - name: "obstacle1"
+    geometry:
+      - type: "box"
+        dimensions:              # Triángulo
+          [0.8, 0.25]
+        color: [0.5, 0.5, 0.5, 1]
+      - type: "box"
+        dimensions:              # Triángulo
+          [0.25, 0.8]
+        color: [0.5, 0.5, 0.5, 1]
+        offset: [-0.55,0.55,0]
 states:
   - name: "start"
     configuration:

@@ -1,0 +1,42 @@
+robot:
+  - name: "l1"
+    joint: "flying"
+    limits:
+      upper: [ 2,  2]
+      lower: [-2, -2]
+    tip: [0.5,0.0,0.0]
+    geometry:
+      - type: "circle"
+        dimensions: [0.2]              # Pentágono irregular rotado
+        offset: [0.4 , 0.0, 0.0]
+        color: [0, 0.1, 0.5, 1]
+  - name: "obstacle1"
+    geometry:
+      - type: "simple"
+        points:              # Triángulo
+          - [0.0, -1.5]
+          - [0.0, 1.5]
+          - [1.5, 1.5]
+          - [2.0, 1.25]
+          - [2.0, 0.25]
+          - [1.9, 0.25]
+          - [1.9, 1.2]
+          - [1.5, 1.4]
+          - [0.1, 1.4]
+          - [0.1, -1.4]
+          - [1.5, -1.4]
+          - [1.9, -1.25]
+          - [1.9, -0.25]
+          - [2.0, -0.25]
+          - [2.0, -1.3]
+          - [1.5, -1.5]
+states:
+  - name: "start"
+    configuration:
+    - frame: "l1"
+      value: [0.89, 0, 0]
+
+  - name: "goal"
+    configuration:
+    - frame: "l1"
+      value: [5, 0.92, -1.948]
