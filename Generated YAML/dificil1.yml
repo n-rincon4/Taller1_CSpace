@@ -3,8 +3,8 @@ robot:
     joint: "translate"
     parent: "root"
     limits:
-      upper: [2, 2]
-      lower: [-2, -2]
+      upper: [9, 3]
+      lower: [0, -3]
     tip: [0, 0, 0]
     geometry:
       - type: "circle"
@@ -42,66 +42,113 @@ robot:
         offset: [-0.5, 0, 0]
   
   - name: "obstacle_1"
-    tip: [-1.3, 1.1, 0]
+    tip: [4.0, 0, 0]
     geometry:
-      - type: "box"
-        dimensions: [0.3, 0.5]
-        color: [0.77, 0.94, 0.64, 1]
+      - type: "simple"
+        points: 
+        - [-3, 0.5]
+        - [-3,3]
+        - [6, 3]
+        - [6,0.5]
+        - [5.8,0.5]
+        - [5.8,2.8]
+        - [-2.8, 2.8]
+        - [-2.8, 0.5]
+              
+        color: [0, 0, 0, 1]
         
   - name: "obstacle_2"
+    tip: [4.0, 0, 0]
     geometry:
-      - type: "box"
-        dimensions: [1.0, 0.3]
-        offset: [1.25 , 1., 0]
-        color: [0, 0.1, 0.5, 1]
+      - type: "simple"
+        points: 
+        - [5.8, -2.8]
+        - [5.8, -0.5]
+        - [6, -0.5]
+        - [6,-3]
+        - [-3,-3]
+        - [-3, -0.5]
+        - [-2.8, -0.5]
+        - [-2.8, -2.8]
+        
+        color: [0, 0, 0, 1] 
         
   - name: "obstacle_3"
+    tip: [4.0, 1.0, 0]
     geometry:
       - type: "box"
-        dimensions: [0.7, 1.3]
-        offset: [1.25 , 3., 0]
-        color: [0, 0.1, 0.5, 1]
-
+        dimensions: [0.1, 2.0]
+        color: [0, 0, 0, 1]    
+        
   - name: "obstacle_4"
+    tip: [4.0, -2.5, 0]
     geometry:
       - type: "box"
-        dimensions: [1.0, 0.3]
-        offset: [3.75 , 1., 0]
-        color: [0, 0.1, 0.5, 1]
-
-  - name: "obstacle_5"        
+        dimensions: [0.1, 0.5]
+        color: [0, 0, 0, 1]   
+        
+  - name: "obstacle_5"
     tip: [0, 0, 0]
     geometry:
-      - type: "circle"
-        dimensions: [2.]
-        color: [0.5, 0.5, 0.5, 1]
-        offset: [4.25, 3.8, 0]
+      - type: "simple"
+        points: 
+        - [5, 0.1]
+        - [6.9, 0.1]
+        - [6.9, 2.0]
+        - [7.1, 2.0]
+        - [7.1, 0.1]
+        - [9, 0.1]
+        - [9, -0.1]
+        - [7.1, -0.1]
+        - [7.1, -2.0]
+        - [6.9, -2.0]
+        - [6.9, -0.1]
+        - [5, -0.1]
+        color: [0, 0, 0, 1]     
         
   - name: "obstacle_6"
+    tip: [5.5, 1.5, 0]
     geometry:
-      - type: "box"
-        dimensions: [1.0, 0.3]
-        offset: [3.75 , 6.5, 0]
-        color: [0, 0.1, 0.5, 1]
-                
+      - type: "circle"
+        dimensions: [0.85]
+        color: [0, 0, 0, 1]    
+        
   - name: "obstacle_7"
+    tip: [8.5, 1.5, 0]
     geometry:
-      - type: "box"
-        dimensions: [0.7, 1.3]
-        offset: [8. , 3., 0]
-        color: [0, 0.1, 0.5, 1]
+      - type: "circle"
+        dimensions: [0.85]
+        color: [0, 0, 0, 1]  
+        
+  - name: "obstacle_8"
+    tip: [8.5, -1.5, 0]
+    geometry:
+      - type: "circle"
+        dimensions: [0.85]
+        color: [0, 0, 0, 1]  
+        
+  - name: "obstacle_9"
+    tip: [5.5, -1.5, 0]
+    geometry:
+      - type: "circle"
+        dimensions: [0.85]
+        color: [0, 0, 0, 1]  
                 
 states:
   - name: "start"
     configuration:
+     - frame: "base"
+       value: [0.000, 0.000]
      - frame: "link_1"
-       value: [3.079]
+       value: [0.000]
      - frame: "link_2"
-       value: [-0.377]
+       value: [0.000]
       
   - name: "goal"
     configuration:
+     - frame: "base"
+       value: [9.000, -0.420]
      - frame: "link_1"
-       value: [2.199]
+       value: [0.251]
      - frame: "link_2"
-       value: [-1.759]
+       value: [2.073]
