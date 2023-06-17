@@ -1,0 +1,164 @@
+robot:
+  - name: "base"
+    joint: "fixed"
+    parent: "root"
+    tip: [7, 0, 0]
+    geometry:
+      - type: "circle"
+        dimensions: [0.1]
+        color: [0.5, 0.5, 0.5, 1]
+        offset: [0, 0, 0]
+
+  - name: "link_1"
+    joint: "continuous"
+    parent: "base"
+    tip: [1, 0, 0]
+    allowed: ["base"]
+    geometry:
+      - type: "box"
+        dimensions: [0.5, 0.1]
+        color: [0.5, 0.2, 0.5, 1]
+        offset: [-0.5, 0, 0]
+      - type: "circle"
+        dimensions: [0.1]
+        color: [0.2, 0.2, 0.2, 1]
+        offset: [0, 0, 0]
+  
+  - name: "link_2"
+    joint: "revolute"
+    parent: "link_1"
+    tip: [1, 0, 0]
+    limits:
+      upper: 3.14159265359
+      lower: -3.14159265359
+    allowed: ["link_1"]
+    geometry:
+      - type: "box"
+        dimensions: [0.5, 0.1]
+        color: [0.5, 0.2, 0.5, 1]
+        offset: [-0.5, 0, 0]
+      - type: "circle"
+        dimensions: [0.1]
+        color: [0.2, 0.2, 0.2, 1]
+        offset: [0, 0, 0]
+        
+  - name: "link_3"
+    joint: "prismatic"
+    parent: "link_2"
+    tip: [0, 0, 0]
+    limits:
+      upper: 0.25
+      lower: -0.25
+    allowed: ["link_2"]
+    geometry:
+      - type: "box"
+        dimensions: [0.5, 0.1]
+        color: [0.5, 0.2, 0.5, 1]
+        offset: [0, 0, 0]
+        
+  - name: "obstacle_1"
+    tip: [4.0, 0, 0]
+    geometry:
+      - type: "simple"
+        points: 
+        - [0, 0.5]
+        - [0,3]
+        - [6, 3]
+        - [6,0.5]
+        - [5.8,0.5]
+        - [5.8,2.8]
+        - [0.2, 2.8]
+        - [0.2, 0.5]
+              
+        color: [0, 0, 0, 1]
+        
+  - name: "obstacle_2"
+    tip: [4.0, 0, 0]
+    geometry:
+      - type: "simple"
+        points: 
+        - [5.8, -2.8]
+        - [5.8, -0.5]
+        - [6, -0.5]
+        - [6,-3]
+        - [0,-3]
+        - [0, -0.5]
+        - [0.2, -0.5]
+        - [0.2, -2.8]
+        
+        color: [0, 0, 0, 1] 
+        
+  - name: "obstacle_5"
+    tip: [5, 0, 0]
+    geometry:
+      - type: "box"
+        dimensions: [0.5, 0.1]
+        color: [0, 0, 0, 1]     
+        
+  - name: "obstacle_6"
+    tip: [9.0, 0, 0]
+    geometry:
+      - type: "box"
+        dimensions: [0.5, 0.1]
+        color: [0, 0, 0, 1]   
+        
+  - name: "obstacle_7"
+    tip: [7, 2.5, 0]
+    geometry:
+      - type: "box"
+        dimensions: [0.1, 0.5]
+        color: [0, 0, 0, 1]   
+        
+  - name: "obstacle_8"
+    tip: [7, -2.5, 0]
+    geometry:
+      - type: "box"
+        dimensions: [0.1, 0.5]
+        color: [0, 0, 0, 1]   
+        
+  - name: "obstacle_9"
+    tip: [5.5, 1.5, 0]
+    geometry:
+      - type: "circle"
+        dimensions: [0.85]
+        color: [0, 0, 0, 1]    
+        
+  - name: "obstacle_10"
+    tip: [8.5, 1.5, 0]
+    geometry:
+      - type: "circle"
+        dimensions: [0.85]
+        color: [0, 0, 0, 1]  
+        
+  - name: "obstacle_11"
+    tip: [8.5, -1.5, 0]
+    geometry:
+      - type: "circle"
+        dimensions: [0.85]
+        color: [0, 0, 0, 1]  
+        
+  - name: "obstacle_12"
+    tip: [5.5, -1.5, 0]
+    geometry:
+      - type: "circle"
+        dimensions: [0.85]
+        color: [0, 0, 0, 1]  
+                
+states:
+  - name: "start"
+    configuration:
+     - frame: "link_1"
+       value: [2.199]
+     - frame: "link_2"
+       value: [-0.754]
+     - frame: "link_3"
+       value: [0.250]
+      
+  - name: "goal"
+    configuration:
+     - frame: "link_1"
+       value: [-3.142]
+     - frame: "link_2"
+       value: [0.440]
+     - frame: "link_3"
+       value: [0.250]
